@@ -1,0 +1,231 @@
+﻿<fieldset>
+    <legend>Iniciar transferencia:</legend>
+    <form name="form" class="forms-basic">
+        <div class="row">
+            <div class="col-xs-12  col-xl-7">
+                <div class="form-group floating-labels">
+                    <label for="nrocuenta">Nro de Cuenta</label>
+                    <input id="nrocuenta" autocomplete="off" type="text" name="nrocuenta" class="floating-input">
+                </div>
+            </div>
+            <div class="col-xs-12 col-xl-2">
+                <input type="button" class="btn btn-primary marginXS-top" onclick="loadData()" value="Buscar" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-xl-6">
+                <div class="form-group">
+                    <label for="Addressee">Cliente</label>
+                    <input id="Addressee" type="text" name="Addressee" value="" class="form-control" disabled>
+                </div>
+            </div>
+            <div class="col-xs-12 col-xl-6">
+                <div class="form-group">
+                    <label for="DNI">Nro CI</label>
+                    <input id="DNI" type="text" name="DNI" value="" class="form-control" disabled>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-xl-6">
+                <div class="form-group">
+                    <label for="balance">Saldo:</label>
+                    <input id="balance" type="text" name="balance" value="" class="form-control" disabled>
+                </div>
+            </div>
+            <div class="col-xs-12 col-xl-6">
+                <div class="form-group">
+                    <label for="state">Estado</label>
+                    <input id="state" type="text" name="state" value="" class="form-control" disabled>
+                </div>
+            </div>
+        </div>
+    </form>
+</fieldset>
+<fieldset style="display:none" id="fieldBeneficiario">
+    <legend>Destinatario:</legend>
+    <form name="form" class="forms-basic">
+        <div class="row">
+            <div class="col-xs-12 col-xl-8">
+                <div class="form-group floating-labels">
+                    <select class="form-control" id="listBeneficiario" onchange="loadDataBeneficiario()">
+                        <option>
+                            Elija un favorito
+                        </option>
+                        <option>
+                            COD:DNABBWG10BF; BENEF: PEDRO DIAZ CARPIO
+                        </option>
+                        <option>
+                            COD: HSBCHKHHHKH; BENEF: HUA KAI DA CO. LIMITED CHENGAI
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-2 col-xl-2">
+                <input type="button" class="btn btn-primary" onclick="alert('Nuevo')" value="Nuevo" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-xl-6">
+                <div class="form-group">
+                    <label for="CodBank">Código Banco Destino</label>
+                    <input id="CodBank" type="text" name="CodBank" value="" class="form-control" readonly>
+                </div>
+            </div>
+            <div class="col-xs-12 col-xl-6">
+                <div class="form-group">
+                    <label for="BankName">Banco Destino</label>
+                    <input id="BankName" type="text" name="BankName" value="" class="form-control" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-10 col-xl-6">
+                <div class="form-group">
+                    <label for="NameDestinity">Beneficiario:</label>
+                    <input id="NameDestinity" type="text" name="NameDestinity" value="" class="form-control" readonly>
+                </div>
+            </div>
+            <div class="col-xs-2 col-xl-6">
+                <div class="form-group">
+                    <label for="DNIBeneficiario">Documento Beneficiario</label>
+                    <input id="DNIBeneficiario" type="text" name="DNIBeneficiario" value="" class="form-control" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-xl-6">
+                <div class="form-group">
+                    <label for="cuentaDestino">Cuenta:</label>
+                    <input id="cuentaDestino" type="text" name="cuentaDestino" value="" class="form-control" readonly>
+                </div>
+            </div>
+            <div class="col-xs-12 col-xl-6">
+                <div class="form-group">
+                    <label for="TelefonoBeneficiario">Telefono</label>
+                    <input id="TelefonoBeneficiario" type="text" name="TelefonoBeneficiario" value="" class="form-control" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-xl-12">
+                <div class="form-group">
+                    <label for="DireccionBeneficiario">Direccion Beneficiario</label>
+                    <input id="DireccionBeneficiario" type="text" name="DireccionBeneficiario" value="" readonly class="form-control">
+                </div>
+            </div>
+        </div>
+    </form>
+</fieldset>
+
+<fieldset style="display:none" id="fieldTransferencia">
+    <legend>Transferencia:</legend>
+    <form name="form" class="forms-basic">
+        <div class="row">
+            <div class="col-xs-12 col-xl-6">
+                <div class="form-group">
+                    <label for="Monto">Monto a Enviar</label>
+                    <input id="Monto" type="number" name="Monto" value="" class="form-control">
+                </div>
+            </div>
+            <div class="col-xs-12 col-xl-6">
+                <div class="form-group">
+                    <label for="Monto">Moneda</label>
+                    <select class="form-control" id="monedaDestino">
+                        <option>BS</option>
+                        <option>USD</option>
+                        <option>YUAN</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-10 col-xl-6">
+                <div class="form-group">
+                    <label for="Comision">Comision:</label>
+                    <input id="Comision" type="text" name="Comision" value="500 USD" class="form-control" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-xl-12">
+                <div class="form-group">
+                    <label for="Motivo">Motivo:</label>
+                    <input id="Motivo" type="text" name="Motivo" value="" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-xl-12">
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#default-modal">
+                    Confirmar Transferecia
+                </button>
+            </div>
+        </div>
+    </form>
+</fieldset>
+
+
+<div class="modal fade in" id="default-modal" tabindex="-1" role="dialog" aria-labelledby="default-modalLabel" style="display: block;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="default-modalLabel">Confirmación de envío</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Esta seguro que desea realizar la tranferencia?
+                </p>
+                <p>
+                    Si es así presiona guardar Cambios<br />
+                    De no ser asi presione el boton cerrar
+                </p>
+                <p>
+                    Una vez confirmada la transferencia pase por plataforma a recoger su factura por la comisión generada
+                    Muchas gracias por su preferencia
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Guardar Cambios</button>
+                <button type="button" class="btn btn-warning">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section customscript
+{
+
+
+    <script type="text/javascript">
+
+        $("#default-modal").hide();
+
+        function loadData() {
+            $("#Addressee").val("Ruben Dario Chalco");
+            $("#DNI").val("6457754LP");
+            $("#balance").val("1000 USD");
+            $("#balance").addClass("text-balance-Bs");
+            $("#state").val("Activa");
+            $("#fieldBeneficiario").show();
+            showMessage("WebService", "Llamada a servicio que trae la informacion de la cuenta digitada del cliente<br/>Cargamos la lista de favoritos por DNI del cliente");
+            return false;
+        }
+
+        function loadDataBeneficiario() {
+            
+            $("#CodBank").val("DNABBWG10BF");
+            $("#BankName").val("NATIONAL DEVELOPMENT BANK");
+            $("#NameDestinity").val("PEDRO DIAZ CARPIO");
+            $("#DNIBeneficiario").val("65662313656897135");
+            $("#cuentaDestino").val("6987653223");
+            $("#DireccionBeneficiario").val("ZHIHUANG INTERNATIONAL IMP AND EXPTRADING CO., LIMITED OFICCE 3A-9");
+            $("#TelefonoBeneficiario").val("+51 8755215045");
+            $("#fieldTransferencia").show();
+            showMessage("Servicio interno", "Luego de la seleccion del beneficiario, ingresamos los datos de la transaccion");
+            return false;
+        }
+    </script>
+}
