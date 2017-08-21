@@ -4040,6 +4040,7 @@
     <Content Include="Views\Shared\_MenuView.cshtml" />
     <Content Include="Views\Home\TransferDemo.cshtml" />
     <Content Include="Views\Shared\_PopupView.cshtml" />
+    <Content Include="Views\Home\BandejaTransferencias.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
