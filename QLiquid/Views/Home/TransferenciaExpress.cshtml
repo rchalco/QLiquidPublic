@@ -1,28 +1,21 @@
-﻿<fieldset>
+﻿
+@{
+    ViewBag.Title = "TransferenciaExpress";
+}
+
+<h2>TransferenciaExpress</h2>
+
+<fieldset>
     <legend>Iniciar transferencia:</legend>
     <form name="form" class="forms-basic">
         <div class="row">
             <div class="col-xs-12  col-xl-7">
                 <div class="form-group floating-labels">
-                    <label for="nrocuenta">Nro de Cuenta</label>
-                    <input id="nrocuenta" autocomplete="off" type="text" name="nrocuenta" class="floating-input">
-                </div>
-            </div>
-            <div class="col-xs-12 col-xl-2">
-                <input type="button" class="btn btn-primary marginXS-top" onclick="loadData()" value="Buscar" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-xl-6">
-                <div class="form-group">
-                    <label for="Addressee">Cliente</label>
-                    <input id="Addressee" type="text" name="Addressee" value="" class="form-control" disabled>
-                </div>
-            </div>
-            <div class="col-xs-12 col-xl-6">
-                <div class="form-group">
-                    <label for="DNI">Nro CI</label>
-                    <input id="DNI" type="text" name="DNI" value="" class="form-control" disabled>
+                    <select class="form-control" onchange="loadData()">
+                        <option>Seleccione su Nro Cuenta</option>
+                        <option>10024323736</option>
+                        <option>10024578894</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -33,89 +26,50 @@
                     <input id="balance" type="text" name="balance" value="" class="form-control" disabled>
                 </div>
             </div>
-            <div class="col-xs-12 col-xl-6">
-                <div class="form-group">
-                    <label for="state">Estado</label>
-                    <input id="state" type="text" name="state" value="" class="form-control" disabled>
-                </div>
-            </div>
         </div>
     </form>
 </fieldset>
 <fieldset style="display:none" id="fieldBeneficiario">
-    <legend>Destinatario:</legend>
-    <form name="form" class="forms-basic">
-        <div class="row">
-            <div class="col-xs-12 col-xl-8">
-                <div class="form-group floating-labels">
-                    <select class="form-control" id="listBeneficiario" onchange="loadDataBeneficiario()">
-                        <option>
-                            Elija un favorito
-                        </option>
-                        <option>
-                            COD:DNABBWG10BF; BENEF: PEDRO DIAZ CARPIO
-                        </option>
-                        <option>
-                            COD: HSBCHKHHHKH; BENEF: HUA KAI DA CO. LIMITED CHENGAI
-                        </option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-xs-2 col-xl-2">
-                <input type="button" class="btn btn-primary" onclick="nuevoFavorito()" value="Nuevo" />
-            </div>
+    <legend>Destinatarios:</legend>
+    <div class="row">
+        <div class="col-xs-12" onclick="loadDataTransferencia(this)">
+            <ul class="list-group activities">
+                <li class="list-group-item">
+                    <span class="text-xs pull-right">20.08.2017</span>
+                    <span class="tag tag-success">Seleccionar</span>
+                    <div class="clearfix">
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <span class="text-bold">Cod. Banco</span>
+                        </div>
+                        <div class="col-xs-6">
+                            <span class="capitalize">DNABBWG10BF</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <span class="text-bold">Banco Destino</span>
+                        </div>
+                        <div class="col-xs-6">
+                            <span class="capitalize">NATIONAL DEVELOPMENT BANK</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <span class="text-bold">Beneficiario</span>
+                        </div>
+                        <div class="col-xs-6">
+                            <span class="capitalize">PEDRO DIAZ CARPIO</span>
+                        </div>
+                    </div>
+
+                </li>
+
+            </ul>
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-xl-6">
-                <div class="form-group">
-                    <label for="CodBank">Código Banco Destino</label>
-                    <input id="CodBank" type="text" name="CodBank" value="" class="form-control" readonly>
-                </div>
-            </div>
-            <div class="col-xs-12 col-xl-6">
-                <div class="form-group">
-                    <label for="BankName">Banco Destino</label>
-                    <input id="BankName" type="text" name="BankName" value="" class="form-control" readonly>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-10 col-xl-6">
-                <div class="form-group">
-                    <label for="NameDestinity">Beneficiario:</label>
-                    <input id="NameDestinity" type="text" name="NameDestinity" value="" class="form-control" readonly>
-                </div>
-            </div>
-            <div class="col-xs-2 col-xl-6">
-                <div class="form-group">
-                    <label for="DNIBeneficiario">Documento Beneficiario</label>
-                    <input id="DNIBeneficiario" type="text" name="DNIBeneficiario" value="" class="form-control" readonly>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-xl-6">
-                <div class="form-group">
-                    <label for="cuentaDestino">Cuenta:</label>
-                    <input id="cuentaDestino" type="text" name="cuentaDestino" value="" class="form-control" readonly>
-                </div>
-            </div>
-            <div class="col-xs-12 col-xl-6">
-                <div class="form-group">
-                    <label for="TelefonoBeneficiario">Telefono</label>
-                    <input id="TelefonoBeneficiario" type="text" name="TelefonoBeneficiario" value="" class="form-control" readonly>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-xl-12">
-                <div class="form-group">
-                    <label for="DireccionBeneficiario">Direccion Beneficiario</label>
-                    <input id="DireccionBeneficiario" type="text" name="DireccionBeneficiario" value="" readonly class="form-control">
-                </div>
-            </div>
-        </div>
-    </form>
+    </div>
 </fieldset>
 
 <fieldset style="display:none" id="fieldTransferencia">
@@ -226,18 +180,14 @@
         $("#favoritos-modal").hide();
 
         function loadData() {
-            $("#Addressee").val("PERICO PEREZ");
-            $("#DNI").val("6457754LP");
             $("#balance").val("68.000,00 USD");
             $("#balance").addClass("text-balance-Bs");
-            $("#state").val("Activa");
             $("#fieldBeneficiario").show();
-            showMessage("WebService", "Llamada a servicio que trae la informacion de la cuenta digitada del cliente<br/>Cargamos la lista de favoritos por DNI del cliente");
             return false;
         }
 
         function loadDataBeneficiario() {
-            
+
             $("#CodBank").val("DNABBWG10BF");
             $("#BankName").val("NATIONAL DEVELOPMENT BANK");
             $("#NameDestinity").val("PEDRO DIAZ CARPIO");
@@ -248,6 +198,15 @@
             $("#fieldTransferencia").show();
             showMessage("Servicio interno", "Luego de la seleccion del beneficiario, ingresamos los datos de la transaccion");
             return false;
+        }
+
+        function loadDataTransferencia(obj) {
+            $("#fieldTransferencia").show();
+            $(obj).css({
+                "border-color": "#C1E0FF",//cambiar color
+                "border-width": "1px",
+                "border-style": "solid"
+            });
         }
 
         function nuevoFavorito() {

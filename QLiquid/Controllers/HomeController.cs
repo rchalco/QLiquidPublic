@@ -36,5 +36,20 @@ namespace QLiquid.Controllers
 
             return View();
         }
+
+        public ActionResult Favoritos()
+        {
+            ViewBag.Message = "";
+
+            return View();
+        }
+
+        public ActionResult TransferenciaExpress()
+        {
+            ViewBag.Message = "";
+
+            return View();
+        }
+
     }
 }

@@ -218,6 +218,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SguridadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -4041,6 +4042,9 @@
     <Content Include="Views\Home\TransferDemo.cshtml" />
     <Content Include="Views\Shared\_PopupView.cshtml" />
     <Content Include="Views\Home\BandejaTransferencias.cshtml" />
+    <Content Include="Views\Home\Favoritos.cshtml" />
+    <Content Include="Views\Sguridad\Index.cshtml" />
+    <Content Include="Views\Home\TransferenciaExpress.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

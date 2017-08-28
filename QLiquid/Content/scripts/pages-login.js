@@ -10,12 +10,11 @@
         $('body').attr('data-direction', config.direction);
         var email = $('.login-page #email');
         email.floatingLabels({
-            errorBlock: 'Please enter your email',
-            isEmailValid: 'Please enter a valid email'
+            errorBlock: 'Por favor ingrese su usuario',
         });
         var password = $('.login-page #password');
         password.floatingLabels({
-            errorBlock: 'Please enter a valid password',
+            errorBlock: 'Por favor ingrese un password correcto',
             minLength: 6
         });
         $('.login-page .btn-login').click(function(e) {
